@@ -1,0 +1,516 @@
+
+body
+{
+    margin: 0px;
+    height: 900px;
+}
+.loadimage
+{
+    style="display:none";
+    
+}
+.uname
+{
+    font-family: sans-serif;
+   
+    left: 2px;
+    color: blue;
+}
+
+
+.mainmenudiv
+{   position: fixed;
+    left: 300px;
+    width: 600px;
+    height: 30px;
+    top:10px;
+}
+
+ul.mainmenu a
+{
+    text-decoration: none;
+    display: block;
+    width: 125px;
+    height: 25px;
+    line-height: 25px;
+    background: #16a085;
+    border: 1px;
+    border-radius:3px; 
+} 
+
+ul .menu1 li
+{
+   
+    
+}
+ul .menu1 a
+{
+    margin-top: 1px;
+    
+}
+
+ul.menu1_2 a
+{
+margin-left: 10px;    
+    
+}
+
+ul.mainmenu .menu3 a
+{
+    margin-top: 1px;
+    
+}
+
+ul li:hover >a{
+    
+    background-color: #cfc;
+}
+
+ul li:hover a:hover{
+    
+    background-color: #FF0;
+}
+
+ul
+{
+           list-style-type: none;
+}
+ul.mainmenu li
+{
+margin: 1px ;
+    width:125px;
+    text-align: center;
+    position: relative;
+    float:left;
+    margin-right: 2px;
+    
+    
+}
+
+ul.mainmenu li:hover .menu1
+{
+    display: block;
+}
+
+ul.mainmenu .menu1 li:hover .menu1_2
+{
+    display: block;
+    
+}
+
+ul.mainmenu li:hover .menu3
+{
+    display: block;
+    
+}
+
+ul.mainmenu .darrow
+{
+    font-size: 10px;
+     position: absolute;
+    left :110px;
+top:8px;
+    
+}
+ul.mainmenu .rarrow
+{
+    font-size: 15px;
+    position: absolute;
+    left: 110px;
+    bottom:3px;
+}
+
+ul.menu3
+{
+    display :none;
+    position: absolute;
+    top:25px;
+    left:0px;
+}
+ul.menu1
+{
+    
+ display: none;
+    position: absolute;
+    top:25px;
+    left:0px;
+        
+}
+ul .menu1_2
+{display: none;
+    position: absolute;
+    top:0px;
+    left:121px
+    
+}
+
+.heading
+{
+    
+    text-align: left;
+    float: none;
+    font-size: 30px;
+        
+} 
+.formessage{}
+.msgcnter
+{
+    position: fixed;
+    left:400px;
+    bottom: -10px;
+    
+    
+    
+    
+}
+.msgcnter div
+{
+    
+    margin-right: 2px;
+}
+
+.msgcnter div div
+{
+    
+    margin-right: 2px;
+}
+.msgwarp
+{
+    position: fixed;
+    bottom:0px;
+}
+.msgwarp_2
+{
+     position: fixed;
+    bottom:0px;
+}
+
+.msgwarp_3
+{position: fixed;
+    bottom:0px;
+}
+.chathead1
+{
+    background: #2980b9;
+    padding: 21px;
+    border-radius: 5px 5px 0px 0px;
+width: 250px;
+
+}
+.chathead3
+{
+    background: #2980b9;
+    padding: 20px;
+    border-radius: 5px 5px 0px 0px;
+width: 250px
+}
+
+.chathead2
+{
+    background: #2980b9;
+    padding: 20px;
+    border-radius: 5px 5px 0px 0px;
+width: 250px
+}
+.close
+{
+    float: right;
+    cursor: pointer;
+    
+}
+.close1
+{
+    float: right;
+    cursor: pointer;
+    
+}
+.close2
+{
+    float: right;
+    cursor: pointer;
+    
+}
+
+.chatlog
+{
+    padding: 8px;
+    background: #95a5a6;
+    width: 250px;
+    height: 200px;
+    margin: 0px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.chatmsg
+{
+    position: relative;
+    line-height: 35px;
+    height: 50px;
+    width:180px;
+    background: #2ECC71;
+    color: white;
+    font-family: cursive;
+    margin-top: 2px;
+    text-align: left;
+    border-radius: 5px;
+    overflow: auto;
+    overflow-x: hidden;
+float: left;
+
+    
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.chatmsg1
+{
+    font-family: sans-serif;
+
+    position: relative;
+    line-height: 35px;
+    height: 50px;
+    width:180px;
+    background: #F1C40F;
+    color: white;
+    text-align: left;
+border-radius: 5px;
+overflow: auto;
+    overflow-x: hidden;
+    margin-top: 4px;
+    margin-bottom: 4px;
+float: right;
+}
+.friendslist{}
+
+.friendslist div
+{
+  
+    margin-bottom: 1px;
+    
+}
+.wrap1
+{
+   position: fixed;
+    bottom: 0px;
+
+    border-radius: 5px;
+       
+}
+.user:hover
+{
+    background: #34495e;
+    color: #d35400;
+}
+.fhead
+{
+    background: navy;
+    padding: 15px;
+    border-radius: 5px 5px 0px 0px;
+    width: 250px;
+}
+.user:hover
+{
+    background: #34495e;
+    color: #d35400;
+}
+.user
+{
+    cursor: pointer;
+    background: #ecf0f1;
+    border-bottom: 2px;
+    margin-bottom: 1px;
+    position:relative;
+        padding:20px;
+    
+}
+.user:before
+{
+    
+    content: "";
+    background: green;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+ left:2px;
+    bottom: 23px;
+    border-radius: 4px 4px 4px 4px;
+}
+.user:before
+{
+    
+    content: "";
+    background: green;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    
+     left:2px;
+    bottom: 23px;
+    border-radius: 4px 4px 4px 4px;
+}
+.friendslist
+{
+    background: #95a5a6;
+    width: 250px;
+ 	height:400px;  
+    margin: 0px;
+    
+}
+.user1:hover
+{
+    background: #34495e;
+    color: #d35400;
+}
+
+.user1
+{cursor: pointer;
+    padding: 20px;
+    background: #ecf0f1;
+    margin: 1px;
+    position:relative;
+    
+}
+.user1:before
+{
+    
+    content: "";
+    background: green;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+ left:2px;
+    bottom: 23px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.user2:hover
+{
+    background: #34495e;
+    color: #d35400;
+}
+
+.user2
+{cursor: pointer;
+    padding: 20px;
+    background: #ecf0f1;
+    margin: 1px;
+    position:relative;
+    
+}
+.user2:before
+{
+    
+    content: "";
+    background: green;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+ left:2px;
+    bottom: 23px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.sidepannel
+{
+     height:800px;
+    width: 300px;
+    background: #3B7A57;
+    color: white;
+    top:50px;
+     border-radius: 5px;
+position: relative;
+}
+
+.panel
+{
+    left:0px;
+    right:0px;
+    
+    top: 0px;
+    width: auto;
+    height: 50px;
+    
+     border-radius: 5px;
+background: #2ecc71;
+position: fixed;
+    
+}
+
+.buttons
+{
+   position: absolute;
+    top:10px;
+    text-decoration-line: none;
+    left:1200px;
+    font-size: 10px:
+    
+}
+
+div#logout a
+{
+    text-decoration: none;
+    display: block;
+     height: 30px;
+    width: 80px;
+   line-height:30px;
+}
+
+
+.sendbtn
+{    cursor: pointer;
+    -webkit-transition:all .2s;
+    background: #9b59b6;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 15px;
+    text-decoration-line: none;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.5);
+    border-radius:5px; 
+    
+}
+.sendbtn:hover
+{
+     background: #2ecc71;
+    color: azure;
+}
+
+
+
+.text1
+{border: transparent;
+  width: 100%;
+    height: 8px;
+    background: #ECF0F1;
+        margin:0px;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -box-sizing:border-box;
+    
+}
+
+.text2
+{border: transparent;
+  width: 100%;
+    height: 8px
+        margin:0px;
+    background: #ECF0F1;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -box-sizing:border-box;
+    
+}
+.text3
+{border: transparent;
+  width: 100%;
+    height: 8px
+        margin:0px;
+    background: #ECF0F1;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    -box-sizing:border-box;
+    
+}

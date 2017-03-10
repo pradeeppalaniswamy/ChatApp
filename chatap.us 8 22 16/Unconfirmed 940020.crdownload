@@ -1,0 +1,105 @@
+$(document).ready(function(){
+alert('jqery');
+  //  $('.msgwarp').hide();
+    $('.friendslist').hide();
+    function submit()
+		{
+
+			if(form1.message.value==' ')
+			{
+				alert('message cant be empty');
+				return ;
+			}
+			
+			
+						var message=form1.message.value;
+			var xmlhttp=new XMLHttpRequest(); 
+			$('#imgdisp').show();
+			xmlhttp.onreadystatechange=function(){
+				//alert('infcn');
+				if(xmlhttp.readyState==4&& xmlhttp.status==200)
+				{
+				//alert('in if');
+
+					document.getElementById('chatlogs').innerHTML=xmlhttp.responseText;
+					$('#imgdisp').hide();
+					document.getElementById('msdid').value=" ";
+				}
+			}
+			//alert('xml open');
+				xmlhttp.open('GET','insert.php?&message='+message,true);
+			
+				xmlhttp.send();
+
+			
+		}
+		
+
+          function clearchat()
+	{
+     var xmlhttp1=new XMLHttpRequest();
+      xmlhttp1.open('GET','clrcht.php',true);
+      xmlhttp1.send();
+			
+	}
+
+       
+    $.ajaxSetup({cache:false});
+			//setInterval(function(){$('#chatlogs').load('logs.php' );},2000);
+    setInterval(function(){$('#chatlogs').load('logs.php' );},200);
+//setInterval(function(){$('#chatlogs').load('onlineusers.php' );},200);
+    
+    setInterval(function(){$('#friends').load('onlineusers.php' );},200);
+
+    
+    $('.fhead').click(function(){
+     $('.friendslist').slideToggle('slow');                 
+        
+        
+    });
+    
+    $('.chathead').click(function(){
+     $('.msgtxt').slideToggle('slow');                 
+        
+        
+    });
+    $('.chatmsg').click(function(){alert('jqery');});
+    $('.chathead').click(function(){alert('jqerychead');});
+    
+    //$('.fhead').click(function(){
+                  
+      //  alert('jqery')
+        
+//    });
+    
+    $('.fhead').click(function(){
+                  
+      //  alert('jqery')
+        
+//    });
+    
+    
+    
+    $('.user').click(function()
+        {alert('jqery');});
+    
+    $(".close").click(function(){
+    $('.msgwarp').hide();
+    });
+        
+      $('.user').click(function()
+        { $('.msgwarp').show();
+          $('.msgtxt').show();
+         });
+        
+    $('textarea').keypress
+    (
+    function(e){
+        if(e.keyCode==13){
+                         submit();
+                         }
+    }
+    );
+    
+    
+});

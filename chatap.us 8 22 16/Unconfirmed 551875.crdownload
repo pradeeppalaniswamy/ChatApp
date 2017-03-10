@@ -1,0 +1,733 @@
+$(document).ready(function(){
+//////alert('jqery');
+//alert('jqery');
+    $('.msgwarp').hide();
+    $('.msgwarp_3').hide();
+    $('.msgwarp_2').hide();    
+    //$('.friendslist').hide();
+    //if( $('#u1').is(':empty') ) 
+    //{   $(.user1).hide();}
+//////alert($('#u1').text());
+    $('#wrap').scrollTop( $('#wrap').height() );
+   //$('#u0').load("onlineusers.php?var1=0&var2=u0");
+    
+    $.ajaxSetup({cache:false});
+    
+		/*	setInterval(function(){ 
+            var kk=$('#headtext1').text();
+              //  ////alert(k);
+            $('#chatlogs1').load("logs.php?k="+kk+"");},2600);
+    setInterval(function(){ 
+            var kk=$('#headtext2').text();
+              //  ////alert(k);
+            $('#chatlogs2').load("logs.php?k="+kk+"");},2600);
+    setInterval(function(){ 
+            var kk=$('#headtext1').text();
+              //  ////alert(k);
+            $('#chatlogs1').load("logs.php?k="+kk+"");},2600);*/
+    setInterval(function(){$('#u0').load("onlineusers.php?var1=0&var2=u0"); },2000);
+    setInterval(function(){$('#u1').load("onlineusers.php?var1=1&var2=u1" );},2000);
+    setInterval(function(){$('#u2').load("onlineusers.php?var1=2&var2=u2" );},2000);
+
+    //setInterval(function(){$('#u0').load("onlineusers.php?var1=0&var2=u0"); },2000);
+    setInterval(function(){if(jQuery.trim($('#u0').text())=='')$('#u0').hide();else $('#u0').show();
+                          var kk=$('#headtext1').text();
+              //  ////alert(k);
+            $('#chatlogs1').load("logs.php?k="+kk+"");
+                         //$('#chatlogs1').scrollTop( $('#chatlogs1').height() );
+                          
+                           $("#chatlogs1").animate({ scrollTop: $('#chatlogs1').prop("scrollHeight")}, 1000);
+                          },2500);
+    
+    
+     setInterval(function(){if(jQuery.trim($('#u1').text())=='')$('#u1').hide(); else $('#u1').show(); 
+                           var kk=$('#headtext2').text();
+              //  ////alert(k);
+            $('#chatlogs2').load("logs.php?k="+kk+"");
+                           $("#chatlogs2").animate({ scrollTop: $('#chatlogs2').prop("scrollHeight")}, 1000);
+                           },2500);
+    
+    
+    setInterval(function(){if(jQuery.trim($('#u2').text())=='')$('#u2').hide(); else $('#u2').show();
+                          var kk=$('#headtext3').text();
+              //  ////alert(k);
+            $('#chatlogs3').load("logs.php?k="+kk+"");
+                            $("#chatlogs3").animate({ scrollTop: $('#chatlogs3').prop("scrollHeight")}, 1000);
+                          },2500);
+    
+   // $("#chatlogs3").animate({ scrollTop: $(document).height() }, "fast");
+    
+    //$("#chatlogs1").animate({ scrollTop: $(document).height() }, "slow");
+  //return false;
+    //////alert('u0'+$('#u0').text());
+    //setInterval(function(){$('#u2').load("onlineusers.php?var1=2&var2=u2" );},2000);
+   // setInterval(function(){
+        // setInterval(function(){
+            // $('#u2').load("onlineusers.php?var1=0&var2=u0");
+           // if($('#u2').text()=='')
+          // $('#u2').hide();  
+         //},2000);               
+  
+    
+    //if($('#u1').text()=='')
+        //{//////alert($('#u1').text());
+         //////alert('empty');
+         // $('#u1').hide();  
+            
+        //}
+    
+    
+    function submit()
+	
+    
+    
+    {
+
+			if(form1.message.value==' ')
+			{
+				////alert('message cant be empty');
+				return ;
+			}
+			
+			
+						var message=form1.message.value;
+			var xmlhttp=new XMLHttpRequest(); 
+			$('#imgdisp').show();
+			xmlhttp.onreadystatechange=function(){
+				//////alert('infcn');
+				if(xmlhttp.readyState==4&& xmlhttp.status==200)
+				{
+				////alert('in if');
+
+					document.getElementById('chatlogs').innerHTML=xmlhttp.responseText;
+					$('#imgdisp').hide();
+					document.getElementById('msdid').value=" ";
+				}
+			}
+			////alert('xml open');
+				xmlhttp.open('GET','insert.php?&message='+message,true);
+			
+				xmlhttp.send();
+
+			
+		}
+		
+
+
+$('.addfriendem').click(function(){
+//alert('send frnd req');
+var cc=this.id;
+console.log(cc);
+cc=cc.replace("addfriendem","");
+//alert(cc);
+var actnumv=2;
+ $.ajax({
+                    type: "POST",
+                    url: 'processfriends.php',
+                dataType:'json',
+                 data: 'frid='+cc+'&actnum='+actnumv,
+                success: function(data){
+      console.log(data);
+}
+ });
+        location.reload();
+    })
+
+$('.cnclfrndreq').click(function(){
+//alert('cncl frnd req');
+var cc=this.id;
+console.log(cc);
+cc=cc.replace("cnclfrndreq","");
+//alert(cc);
+var actnumv=3;
+ $.ajax({
+                    type: "POST",
+                    url: 'processfriends.php',
+                dataType:'json',
+                 data: 'frid='+cc+'&actnum='+actnumv,
+                success: function(data){
+      console.log(data);
+}
+ });
+        location.reload();
+    })
+
+$('.rmfrnd').click(function(){
+//alert('remove');
+var cc=this.id;
+console.log(cc);
+cc=cc.replace("rmfrnd","");
+//alert(cc);
+var actnumv=1;
+ $.ajax({
+                    type: "POST",
+                    url: 'processfriends.php',
+                dataType:'json',
+                 data: 'frid='+cc+'&actnum='+actnumv,
+                success: function(data){
+      console.log(data);
+}
+ });
+        location.reload();
+    })
+
+
+
+
+$('.accfrnreq').click(function(){
+//alert('this.id;');
+var cc=this.id;
+console.log(cc);
+cc=cc.replace("accfrnreq","");
+alert(cc);
+var actnumv=3;
+ $.ajax({
+                    type: "POST",
+                    url: 'processfriends.php',
+                dataType:'json',
+                 data: 'frid='+cc+'&actnum='+actnumv,
+                success: function(data){
+      console.log(data);
+}
+ });
+        location.reload();
+    
+
+})
+
+
+$('.rejfrnreq').click(function(){
+//alert('this.id');
+var cc=this.id;
+console.log(cc);
+cc=cc.replace("rejfrnreq","");
+//alert(cc);
+var actnumv=1;
+ $.ajax({
+                    type: "POST",
+                    url: 'processfriends.php',
+                dataType:'json',
+                 data: 'frid='+cc+'&actnum='+actnumv,
+                success: function(data){
+      console.log(data);
+}
+ });
+        location.reload();
+    
+
+})
+
+
+   
+          function clearchat()
+	{
+     var xmlhttp1=new XMLHttpRequest();
+      xmlhttp1.open('GET','clrcht.php',true);
+      xmlhttp1.send();
+			
+	}
+    
+   // $('.user0').click(function()
+      //              {
+     //   //alert($('#u0').attr('id'));
+        ////alert('hai');
+    //});
+    
+
+       
+    //setInterval(function(){$('#u3').load("onlineusers.php?var1=3" );},200);
+
+    
+    $('.fhead').click(function(){
+     $('.friendslist').slideToggle('slow');                 
+        
+        
+    });
+    
+    $('.chathead1').click(function(){
+     $('.msgtxt').slideToggle('slow');                 
+        
+        
+    });
+    
+    $('.chathead2').click(function(){
+     $('.msgtxt_1').slideToggle('slow');                 
+        
+        
+    });
+    $('.chathead3').click(function(){
+     $('.msgtxt_2').slideToggle('slow');                 
+        
+        
+    });
+    
+    $(".close").click(function(){
+    $('.msgwarp').hide();
+        $('#headtext1').text('');
+        
+    });
+        
+    $(".close1").click(function(){
+    $('.msgwarp_2').hide();
+        $('#headtext2').text('');
+    });
+      
+    $(".close2").click(function(){
+    $('.msgwarp_3').hide();
+    $('#headtext3').text('');
+    });
+     $('.chatmsg').click(function(){
+    //alert('jqery');                 
+        
+        
+    });
+
+//$('#editpropic').click(function(){
+    
+  //  alert('hello');
+    
+    
+    
+//})
+
+
+$('#srchbutton').click(function(){alert('clicked');})
+    
+        /*    $('#u0').click(function()
+        { 
+                if($('#headtext1').text()=='u0'||$('#headtext2').text()=='u0'||$('#headtext3').text()=='u0')
+                    {
+                        
+                        return;
+                    }
+                else{
+                    
+                //$('.msgwarp').show();
+          //$('.msgtxt').show();
+         if($('#headtext1').text()==''){
+              ////alert('h1 empty');
+      //$('#chead0').load("username.php?''");
+        //$('#headtext1').text('u0');
+         $('#headtext1').load("finduser.php?v1=u0" );
+              $('#headtext1').text('u0');
+              $('.msgwarp').show();
+          $('.msgtxt').show();
+             
+         }
+         else if($('#headtext2').text()=='')
+             {
+                  ////alert('h2 empty');
+                 
+                 //$('#headtext2').text('u0');
+                 $('#headtext').load("finduser.php?v1=u0" );
+              $('.msgwarp_1').show();
+          $('.msgtxt_1').show();
+             }
+         
+         else if($('#headtext3').text()=='')
+             {
+                 // //alert('h1 empty');
+                 //$('#headtext3').text('u0');
+                 $('#headtext1').load("finduser.php?v1=u0" );
+              $('.msgwarp_2').show();
+          $('.msgtxt_2').show();
+                 
+             }
+         else
+         {
+             
+             //$('#headtext1').text('u0');
+         }
+         
+                }
+        });
+    
+    
+    
+  /*  
+ $('#u2').click(function()
+        {
+      if($('#headtext1').text()==$('#u2').text()||$('#headtext2').text()==$('#u2').text()||$('#headtext3').text()==$('#u2').text())
+             {
+                 return;
+             }
+     else{
+         if($('#headtext1').text()=='')
+         {
+             //alert('h1 empty');
+      //$('#chead0').load("username.php?''");
+               
+             //$('#headtext1').text('u2');
+             $('#headtext1').load("finduser.php?v1=u2" ); 
+             $('.msgwarp').show();
+          $('.msgtxt').show();
+         
+         }
+         else if($('#headtext2').text()=='')
+             {
+                  //alert('h2 empty');
+
+                 //$('#headtext2').text('u2');
+                 $('#headtext2').load("finduser.php?v1=u2" );
+                $('.msgwarp_2').show();
+                $('.msgtxt_1').show();
+         
+             }
+         
+         else if($('#headtext3').text()=='')
+             {
+                  //alert('h3 empty');
+
+                // $('#headtext3').text('u2');
+                 $('#headtext3').load("finduser.php?v1=u2" );
+         
+              $('#headtext3').text('u2');
+              $('.msgwarp_3').show();
+          $('.msgtxt_2').show();
+         
+             
+             }
+       else
+         {
+             
+           /*  $('#headtext1').text('u2');
+         
+          $('#headtext1').text('u2');
+              $('.msgwarp_1').show();
+          $('.msgtxt_1').show();
+         
+        */ //}
+    /*     
+     }
+        });
+    
+    
+    
+    
+
+*/
+    
+    $('.closepost').click(function(){
+        
+      //  //alert("clicked");
+       // //alert(this.id);
+        var postid23=this.id.replace("XX","");
+        //alert(postid23);
+        
+        
+         $.ajax({
+                    type: "POST",
+                    url: 'comments.php',
+                dataType:'json',
+                 data: 'comment='+postid23+'&postid='+postid23 ,
+                    // data : {'comment':textval},
+                success: function(data){
+      console.log(data);
+  }
+
+                // data: "message=" +'hai'
+                
+                });
+        location.reload();
+    })
+    
+    $('#u1').click(function()
+        {
+     
+      
+        if($('#headtext1').text()==$('#u1').text()||$('#headtext2').text()==$('#u1').text()||$('#headtext3').text()==$('#u1').text())
+             {
+                 return;
+             }
+     else{
+         if($('#headtext1').text()=='')
+         {
+             ////alert('h1 empty');
+      //$('#chead0').load("username.php?''");
+             
+             //$('#headtext1').text('u2');
+             $('#headtext1').text($('#u1').text());
+             $('.msgwarp').show();
+          $('.msgtxt').show();
+         
+         }
+         else if($('#headtext2').text()=='')
+             {
+                 // //alert('h2 empty');
+
+                 //$('#headtext2').text('u2');
+                 $('#headtext2').text($('#u1').text());
+                $('.msgwarp_2').show();
+                $('.msgtxt_1').show();
+         
+             }
+         
+         else if($('#headtext3').text()=='')
+             {
+                 // //alert('h3 empty');
+
+                // $('#headtext3').text('u2');
+                 $('#headtext3').text($('#u1').text());
+         
+             // $('#headtext3').text('u2');
+             // $('.msgwarp_3').show();
+          $('.msgtxt_2').show();
+         
+               }
+       else
+         {
+             
+           /*  $('#headtext1').text('u2');
+         
+          $('#headtext1').text('u2');
+              $('.msgwarp_1').show();
+          $('.msgtxt_1').show();
+         
+        */ }
+         
+     }
+        });
+      
+    $('#u2').click(function()
+        {
+      if($('#headtext1').text()==$('#u2').text()||$('#headtext2').text()==$('#u2').text()||$('#headtext3').text()==$('#u2').text())
+             {
+                 return;
+             }
+     else{
+         if($('#headtext1').text()=='')
+         {
+         //    //alert('h1 empty');
+      //$('#chead0').load("username.php?''");
+             
+             //$('#headtext1').text('u2');
+             $('#headtext1').text($('#u2').text());
+             $('.msgwarp').show();
+          $('.msgtxt').show();
+         
+         }
+         else if($('#headtext2').text()=='')
+             {
+                  ////alert('h2 empty');
+
+                 //$('#headtext2').text('u2');
+                 $('#headtext2').text($('#u2').text());
+                $('.msgwarp_2').show();
+                $('.msgtxt_1').show();
+         
+             }
+         
+         else if($('#headtext3').text()=='')
+             {
+                  ////alert('h3 empty');
+
+                // $('#headtext3').text('u2');
+                 $('#headtext3').text($('#u2').text());
+         
+              //$('#headtext3').text('u2');
+              $('.msgwarp_3').show();
+          $('.msgtxt_2').show();
+         
+               }
+       else
+         {
+             
+           /*  $('#headtext1').text('u2');
+         
+          $('#headtext1').text('u2');
+              $('.msgwarp_1').show();
+          $('.msgtxt_1').show();
+         
+        */ }
+         
+     }
+        });
+     
+    
+    $('#u0').click(function()
+        {
+      if($('#headtext1').text()==$('#u0').text()||$('#headtext2').text()==$('#u0').text()||$('#headtext3').text()==$('#u0').text())
+             {
+                 return;
+             }
+     else{
+         if($('#headtext1').text()=='')
+            {   
+             //$('#headtext1').text('u0');
+             $('#headtext1').text($('#u0').text());
+             $('.msgwarp').show();
+          $('.msgtxt').show();
+         
+         }
+         else if($('#headtext2').text()=='')
+             {
+                  ////alert('h2 empty');
+
+                 //$('#headtext2').text('u0');
+                 $('#headtext2').text($('#u0').text());
+                $('.msgwarp_2').show();
+                $('.msgtxt_1').show();
+         
+             }
+         
+         else if($('#headtext3').text()=='')
+             {
+                 // //alert('h3 empty');
+
+                // $('#headtext3').text('u0');
+                 $('#headtext3').text($('#u0').text());
+         
+              //$('#headtext3').text('u0');
+              $('.msgwarp_3').show();
+          $('.msgtxt_2').show();
+         
+               }
+       else
+         {
+             
+           /*  $('#headtext1').text('u0');
+         
+          $('#headtext1').text('u0');
+              $('.msgwarp_1').show();
+          $('.msgtxt_1').show();
+         
+        */ }
+         
+     }
+        });
+    
+        
+    $('.text1').keypress
+    (
+    function(e){
+        if(e.keyCode==13){
+            ////alert($('#text_1').val());
+            //var l=$('#text_1').val();
+            $.ajax({
+                    type: "POST",
+                    url: 'insert.php',
+                   
+                     data: 'user='+ jQuery.trim($('#headtext1').text()) +"&message="+$('#text_1').val()
+
+                // data: "message=" +'hai'
+                
+                });
+            
+            $('#text_1').val('');
+            //$('headtext1').load(insert.php)
+                        // submit();
+            ////alert('hell0'+$('#text_1').val());
+                         }
+    });
+    
+     $('.text2').keypress
+    (
+    function(e){
+        if(e.keyCode==13){
+            ////alert($('#text_1').val());
+            //var l=$('#text_1').val();
+            $.ajax({
+                    type: "POST",
+                    url: 'insert.php',
+                   
+                     data: 'user='+ jQuery.trim($('#headtext2').text()) +"&message="+$('#text_2').val()
+
+                // data: "message=" +'hai'
+                
+                });
+            
+            $('#text_2').val('');
+            //$('headtext1').load(insert.php)
+                        // submit();
+            ////alert('hell0'+$('#text_1').val());
+                         }
+    });
+     $('.text3').keypress
+    (
+    function(e){
+        if(e.keyCode==13){
+            ////alert($('#text_3').val());
+            //var l=$('#text_3').val();
+            $.ajax({
+                    type: "POST",
+                    url: 'insert.php',
+                   
+                     data: 'user='+ jQuery.trim($('#headtext3').text()) +"&message="+$('#text_3').val()
+
+                // data: "message=" +'hai'
+                
+                });
+            
+            $('#text_2').val('');
+            //$('headtext1').load(insert.php)
+                        // submit();
+            ////alert('hell0'+$('#text_1').val());
+                         }
+    });
+    
+    
+    
+     $('.cmntsection').keypress
+    (
+    function(e){
+       // //alert("keypress");
+        
+     ////alert(this.text());
+       // var postid=this.id;
+        if(e.keyCode==13){
+       // //alert("keypress");
+            
+           var  postid =(this.id);
+        ////alert(postid);
+        postid1="#".concat(postid);
+        ////alert(postid1);
+        var textval=$(postid1).val();
+        ////alert(textval.concat("textval"));
+            
+            ////alert(this.text());
+            ////alert($('postid').val());
+            //var l=$('#text_1').val();
+            $.ajax({
+                    type: "POST",
+                    url: 'comments.php',
+                dataType:'json',
+                 data: 'comment='+textval+'&postid='+postid ,
+                    // data : {'comment':textval},
+                success: function(data){
+      console.log(data);
+  }
+
+                // data: "message=" +'hai'
+                
+                });
+        //////alert(textval);
+    /// $('.s').load('comments.php');          
+            ////alert("posted");
+            var cmntsec=postid1.concat("pp");
+            $(cmntsec).load("loadcomments.php?postid="+postid+"");
+                
+            $('.cmntsection').val('');
+            //$('headtext1').load(insert.php)c
+                        // submit();
+            //////alert('hell0'+$('#text_1').val());
+                         }
+    
+    
+    });
+    
+    $('.loadcommentbtn').click(function(){
+        //////alert(this.id);
+        //////alert("hello");
+      var postid=this.id;
+        postid1=postid.replace("l","");
+        var cmntsec=("#").concat(postid1.concat("pp"));
+        $(cmntsec).load("loadcomments.php?postid="+postid1+"");
+        ////alert(postid1);
+    })
+    
+    
+    
+  
+   // $('.s').load('comments.php');/
+    
+})
